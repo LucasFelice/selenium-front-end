@@ -16,8 +16,4 @@ public class canaisDeAtendimentoPage extends basePage {
         clicarBotao(canaisDeAtendimento.btnFalarComAUnimed);
     }
 
-    public void queroContratarUmPlano() {
-        clicarBotao(canaisDeAtendimento.btnQueroContratarUmPlano);
-    }
-
 }

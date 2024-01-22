@@ -9,6 +9,4 @@ public class canaisDeAtendimentoPageMaps {
 
     public final By btnFalarComAUnimed = By.id("fragment-0-hrqx");
 
-    public final By btnQueroContratarUmPlano = By.id("fragment-0-facu");
-
 }

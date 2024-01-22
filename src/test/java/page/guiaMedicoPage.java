@@ -3,14 +3,16 @@ package page;
 import core.basePage;
 import maps.guiaMedicoPageMaps;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static core.driverFactory.getDriver;
 
 public class guiaMedicoPage extends basePage {
 
     guiaMedicoPageMaps guiaMedico = new guiaMedicoPageMaps();
-
-    public String tituloGuiaMedico() {
-        return obterTexto(guiaMedico.txtGuiaMedico);
-    }
 
     public void pesquisar() {
         clicarBotao(guiaMedico.btnPesquisar);
@@ -20,7 +22,8 @@ public class guiaMedicoPage extends basePage {
         clicarBotao(guiaMedico.btnBuscaDetalhada);
     }
 
-    public void setDigiteAquiOQueProcura(String procurar) {
+    public void setDigiteAquiOQueProcura(String procurar) throws InterruptedException{
+        Thread.sleep(5000);
         escreverEObterTextoGuardandoEmVariavel(guiaMedico.inputDigiteAquiOQueProcura, procurar);
     }
 
@@ -34,10 +37,6 @@ public class guiaMedicoPage extends basePage {
 
     public void alertaCPFInvalido() {
         elementoHabilitado(guiaMedico.alertCPFInvalido);
-    }
-
-    public void pesquisarDesabilitado() {
-        elementoHabilitado(guiaMedico.btnPesquisarDesabilitado);
     }
 
     public void scrollAteCampoDigiteSeuCPF() {
@@ -78,10 +77,6 @@ public class guiaMedicoPage extends basePage {
 
     public void mudancaNaRede() {
         clicarCheckbox(guiaMedico.checkboxMudancaNaRede);
-    }
-
-    public String guardarResultadoPesquisa(String texto) {
-        return obterTexto(texto);
     }
 
     public void setEspecialidade(String texto) {

@@ -18,16 +18,8 @@ public class falarComUnimedPage extends basePage {
         return obterTexto(falarComUnimed.txtQueroFalarComAUnimed);
     }
 
-    public void sim() {
-        clicarBotao(falarComUnimed.btnSim);
-    }
-
     public void nao() {
         clicarBotao(falarComUnimed.btnNao);
-    }
-
-    public void setNumeroCartaoUnimed(String numeroCartaoUnimed) {
-        escrever(falarComUnimed.inputNumeroCartaoUnimed, numeroCartaoUnimed);
     }
 
     public void setNome(String nome) {
@@ -84,7 +76,10 @@ public class falarComUnimedPage extends basePage {
         elementoHabilitado(falarComUnimed.btnenviarMensagem);
     }
 
-    public void campoObrigatorio() {
+    public void campoObrigatorio() throws InterruptedException{
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(falarComUnimed.txtCampoObrigatorio));
+
         obterTexto(falarComUnimed.txtCampoObrigatorio);
         elementoHabilitado(falarComUnimed.txtCampoObrigatorio1);
         elementoHabilitado(falarComUnimed.txtCampoObrigatorio2);

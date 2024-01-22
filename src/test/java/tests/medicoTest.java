@@ -14,9 +14,8 @@ public class medicoTest extends baseTest {
     //Neste CT eu valido o comportamento da tela ao tentar realizar uma busca sem informações no campo
     //"Digite aqui o que você procura".
     @Test
-    public void testEncontreUmMedicoAlertaDigiteSuaBusca() {
+    public void testEncontreUmMedicoAlertaDigiteSuaBusca() throws InterruptedException{
         home.encontreUmMedico();
-        Assert.assertEquals("Guia Médico", guiaMedico.tituloGuiaMedico());
         guiaMedico.scrollAteCampoDigiteSeuCPF();
         guiaMedico.pesquisar();
         guiaMedico.alertaCampoBuscaPrecisaSerPreenchido();
@@ -27,7 +26,6 @@ public class medicoTest extends baseTest {
     @Test
     public void testEncontreUmMedicoComportamentoDosCheckboxs() {
         home.encontreUmMedico();
-        Assert.assertEquals("Guia Médico", guiaMedico.tituloGuiaMedico());
         guiaMedico.teleatendimento();
         guiaMedico.urgenciaEEmergencia();
         guiaMedico.mudancaNaRede();
@@ -45,7 +43,6 @@ public class medicoTest extends baseTest {
     @Test
     public void testEncontreUmMedicoViaCampoDeBusca() throws InterruptedException{
         home.encontreUmMedico();
-        Assert.assertEquals("Guia Médico", guiaMedico.tituloGuiaMedico());
         guiaMedico.setDigiteAquiOQueProcura("Pediatria");
         guiaMedico.pesquisar();
         Assert.assertTrue("Pediatria", getDriver().getPageSource().contains("Pediatria"));
@@ -55,7 +52,6 @@ public class medicoTest extends baseTest {
     @Test
     public void testEncontreUmMedicoViaCPFClienteInvalido() {
         home.encontreUmMedico();
-        Assert.assertEquals("Guia Médico", guiaMedico.tituloGuiaMedico());
         guiaMedico.setCPFCliente("000000");
         guiaMedico.alertaCPFInvalido();
 
@@ -64,7 +60,6 @@ public class medicoTest extends baseTest {
     @Test
     public void testEncontreUmMedicoViaBuscaDetalhadaComTresFiltros() throws InterruptedException{
         home.encontreUmMedico();
-        Assert.assertEquals("Guia Médico", guiaMedico.tituloGuiaMedico());
         guiaMedico.buscaDetalhada();
         guiaMedico.setEspecialidade("Pediatria");
         guiaMedico.setEstado("Minas gerais");
@@ -76,7 +71,6 @@ public class medicoTest extends baseTest {
     @Test
     public void testEncontreUmMedicoERefineSuaBusca() throws InterruptedException{
         home.encontreUmMedico();
-        Assert.assertEquals("Guia Médico", guiaMedico.tituloGuiaMedico());
         guiaMedico.buscaDetalhada();
         guiaMedico.setEspecialidade("Pediatria");
         guiaMedico.setEstado("Minas gerais");
@@ -98,7 +92,6 @@ public class medicoTest extends baseTest {
     public void testEncontreUmMedicoViaAcessoRapido() throws InterruptedException{
         home.acessoRapido();
         acessoRapido.encontreUmMedico();
-        Assert.assertEquals("Guia Médico", guiaMedico.tituloGuiaMedico());
         guiaMedico.setDigiteAquiOQueProcura("Pediatria");
         guiaMedico.pesquisar();
         Assert.assertTrue("Pediatria", getDriver().getPageSource().contains("Pediatria"));

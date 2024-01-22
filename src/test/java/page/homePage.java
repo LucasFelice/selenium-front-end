@@ -1,6 +1,8 @@
 package page;
 
 import core.basePage;
+import maps.guiaMedicoPageMaps;
+import maps.homePageMaps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -8,23 +10,20 @@ import static core.driverFactory.getDriver;
 
 public class homePage extends basePage {
 
-    public void encontreUmMedico() {
-        dsl.clicarBotao(By.xpath(
-                "//li[@class='nav-item menu-principal__nivel-2--nav-item']//span[.='ENCONTRE UM MÉDICO']"));
-    }
+    homePageMaps home = new homePageMaps();
 
-    public void setFacaSuaBuscaAqui(String buscaAqui) {
-        dsl.escrever(By.xpath("//*[@class='place-holder-pesquisa']"), buscaAqui);
+    public void encontreUmMedico() {
+        clicarBotao(home.btnEncontreUmMedico);
     }
 
     public void aceitarCookies() {
 
-        By cookiesLocator = By.xpath(("//button[@aria-label='Aceitar todos']"));
+        By cookiesLocator = home.btnAceitarCookies;
 
         WebElement cookiesElement = encontrarElemento(cookiesLocator);
 
         if (cookiesElement != null && cookiesElement.isDisplayed()) {
-            dsl.clicarBotao(By.xpath("//button[@aria-label='Aceitar todos']"));
+            clicarBotao(home.btnAceitarCookies);
         }else {
 
         }
@@ -40,10 +39,10 @@ public class homePage extends basePage {
     }
 
     public void acessoRapido() {
-        dsl.clicarBotao(By.xpath("//a[@id='acesso-rapido-click']"));
+        clicarBotao(home.btnAcessoRapido);
     }
 
     public void canaisDeAtendimento() {
-        dsl.clicarBotao(By.xpath("//a[@class='nav-link']"));
+        clicarBotao(home.btnCanaisDeAtendimento);
     }
 }

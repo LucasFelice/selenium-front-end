@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 
 public class guiaMedicoPageMaps {
 
-    public final By txtGuiaMedico = By.xpath(
-            "//div[@class='text-center col']/h1[.='Guia Médico']");
     public final By btnPesquisar = By.xpath(
             "//button[@class='Button Button--block Button--featured Button--secondary']");
     public final By btnBuscaDetalhada = By.xpath("//li[.='Busca detalhada']");
@@ -16,9 +14,6 @@ public class guiaMedicoPageMaps {
             "//div[@class='Select--invalid-field-icon']");
     public final By alertCPFInvalido = By.xpath(
             "//div[@class='Input--indicators']");
-    public final By btnPesquisarDesabilitado = By.xpath(
-            "//button[@class='Button Button--block Button--featured Button--disabled Button--secondary']");
-    public final By rolarScrollAteCPFCliente = By.xpath("//input[@id='client-input']");
     public final By checkboxTeleAtendimento = By.id("Switch-4");
     public final By checkboxUrgenciaEEmergencia = By.id("Switch-5");
     public final By checkboxMudancaNaRede = By.id("Switch-6");

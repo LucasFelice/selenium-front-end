@@ -11,9 +11,10 @@ public class canaisDeAtendimentoTest extends baseTest {
 
     Faker faker = new Faker(new Locale("pt-BR"));
 
-    String fakerNome = faker.name().fullName();
+    String fakerFirstName = faker.name().firstName();
+    String fakerLastName = faker.name().lastName();
     String fakerEmail = faker.internet().emailAddress(
-            fakerNome.replaceAll(" ", "").toLowerCase());
+            fakerFirstName + fakerLastName.toLowerCase());
     String fakerEstado = faker.address().state();
     String fakerTelefone = faker.phoneNumber().cellPhone();
 
@@ -27,7 +28,7 @@ public class canaisDeAtendimentoTest extends baseTest {
         Assert.assertEquals(
                 "Quero falar com a Unimed", falarComUnimed.tituloQueroFalarComAUnimed());
         falarComUnimed.nao();
-        falarComUnimed.setNome(fakerNome);
+        falarComUnimed.setNome(fakerFirstName + " " +fakerLastName);
         falarComUnimed.setEmail(fakerEmail);
         falarComUnimed.setEstado(fakerEstado);
         falarComUnimed.setCidade();

@@ -6,9 +6,7 @@ public class falarComUnimedPageMaps {
 
     public final By txtQueroFalarComAUnimed = By.xpath(
             "//h2[.='Quero falar com a Unimed']");
-    public final By btnSim = By.xpath("//button[@name='cliente']");
     public final By btnNao = By.xpath("//button[@name='naoCliente']");
-    public final By inputNumeroCartaoUnimed = By.id("cartao");
     public final By inputNome = By.xpath("//input[@name='nome']");
     public final By inputEmail = By.xpath("//input[@name='email']");
     public final By txtUnimedQuePrestouServico = By.xpath(
@@ -22,13 +20,11 @@ public class falarComUnimedPageMaps {
     public final By inputCidade = By.xpath(
             "//div[@class='Select-placeholder' and text()='Cidade']");
     public final By btnManifestacao = By.xpath(
-            "//div[@class='Select-placeholder' and text()='Manifestação']");
+            "(//div[@id='react-select-4--value']/div)[1]");
     public final By inputManifestacao = By.xpath(
-            "(//div[@class='Select-input']//input)[3]");
+            "//input[@id='manifestacao']");
     public final By btnAssunto = By.xpath(
             "//div[@class='Select-placeholder' and text()='Assunto']");
-    public final By inputAssunto = By.xpath(
-            "(//div[@class='Select-input']//input)[4]");
     public final By btnenviarMensagem = By.xpath("//a[.='Enviar Mensagem']");
     public final By txtCampoObrigatorio = By.xpath("//*[@class='invalid-feedback']");
     public final By txtCampoObrigatorio1 = By.xpath("(//*[@class='invalid-feedback'])[1]");
