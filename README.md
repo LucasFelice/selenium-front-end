@@ -6,13 +6,13 @@ Projeto de estudo focado na automação de testes de front-end
 
 ## Índice
 
-- <a href="#-objetivos">Objetivos </a>
-- <a href="#-funcionalidades-do-projeto">Funcionalidades do projeto </a>
-- <a href="#-layout">Layout </a>
-- <a href="#-rodar">Como rodar este projeto? </a>
-- <a href="#-tecnologias-utilizadas">Tecnologias utilizadas </a>
-- <a href="#-autoras">Pessoas autoras </a>
-- <a href="#-contatos">Contatos </a>
+- <a href="#objetivos">Objetivos </a>
+- <a href="#funcionalidades-do-projeto">Funcionalidades do projeto </a>
+- <a href="#layout">Layout </a>
+- <a href="#como-rodar-este-projeto">Como rodar este projeto? </a>
+- <a href="#tecnologias-utilizadas">Tecnologias utilizadas </a>
+- <a href="#pessoas-autoras">Pessoas autoras </a>
+- <a href="#contatos">Contatos </a>
 
 ## Objetivos
 
@@ -45,7 +45,18 @@ $ cd selenium-front-end
 $ npm install
 
 # Execute a aplicação
-$npm run start
+$ Antes da execução certifique-se que não há dados na pasta "allure-results" para não gerar resultados diferentes da execução que será realizada.
+$ mvn clean test ---> Executará todo os testes contidos no projeto dentro do pacote "test".
+$ mvn clean test -Dpackage=TestesDesejáveis ---> Executará os testes apontados no caminho;
+$ Ex.: mvn clean test -Dtest=suiteTest ---> Executará todos os testes dentro do pacote "test" na classe "suiteTest".
+
+# Abra o relatório Allure
+$ allure serve --port 8080 C:\caminho\para\diretório\llure-results --clean
+$ Ex.: allure serve --port 8080 C:\Users\lucas\IdeaProjects\ProjetoSelenium\selenium-front-end\src\test\resources\allure-results --clean
+
+# Apague dados gerados no relatório Allure
+$ rd /s C:\caminho\para\diretório\allure-results
+$ Ex.: rd /s C:\Users\lucas\IdeaProjects\ProjetoSelenium\selenium-front-end\src\test\resources\allure-results
 
 ```
 
