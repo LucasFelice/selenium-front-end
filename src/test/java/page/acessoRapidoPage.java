@@ -2,7 +2,7 @@ package page;
 
 import core.basePage;
 import maps.acessoRapidoPageMaps;
-import org.openqa.selenium.By;
+
 
 public class acessoRapidoPage extends basePage {
 
