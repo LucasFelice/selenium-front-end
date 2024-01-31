@@ -23,10 +23,7 @@ public class driverFactory {
     }
 
     public static void killDriver() {
-        if(driver != null) {
             driver.quit();
-            driver = null;
-        }
     }
 }
 
