@@ -1,10 +1,9 @@
 package tests;
 
 import core.baseTest;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 import com.github.javafaker.Faker;
-
 import java.util.Locale;
 
 public class canaisDeAtendimentoTest extends baseTest {
@@ -14,7 +13,7 @@ public class canaisDeAtendimentoTest extends baseTest {
     String fakerFirstName = faker.name().firstName();
     String fakerLastName = faker.name().lastName();
     String fakerEmail = faker.internet().emailAddress(
-            fakerFirstName + fakerLastName.toLowerCase());
+            fakerFirstName + fakerLastName).toLowerCase();
     String fakerEstado = faker.address().state();
     String fakerTelefone = faker.phoneNumber().cellPhone();
 
@@ -22,10 +21,10 @@ public class canaisDeAtendimentoTest extends baseTest {
     @Test
     public void queroFalarComAUnimedNaoCliente() throws InterruptedException{
         home.canaisDeAtendimento();
-        Assert.assertEquals(
+        Assertions.assertEquals(
                 "Como podemos te ajudar? ", canaisAtendimento.tituloComoPodemosTeAjudar());
         canaisAtendimento.queroFalarComAUnimed();
-        Assert.assertEquals(
+        Assertions.assertEquals(
                 "Quero falar com a Unimed", falarComUnimed.tituloQueroFalarComAUnimed());
         falarComUnimed.nao();
         falarComUnimed.setNome(fakerFirstName + " " +fakerLastName);
@@ -42,10 +41,10 @@ public class canaisDeAtendimentoTest extends baseTest {
     @Test
     public void queroFalarComAUnimedNaoClienteVerificandoCamposObrigatorios() throws InterruptedException{
         home.canaisDeAtendimento();
-        Assert.assertEquals(
+        Assertions.assertEquals(
                 "Como podemos te ajudar? ", canaisAtendimento.tituloComoPodemosTeAjudar());
         canaisAtendimento.queroFalarComAUnimed();
-        Assert.assertEquals(
+        Assertions.assertEquals(
                 "Quero falar com a Unimed", falarComUnimed.tituloQueroFalarComAUnimed());
         falarComUnimed.nao();
         falarComUnimed.setNome("");
