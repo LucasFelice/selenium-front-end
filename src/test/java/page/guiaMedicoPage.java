@@ -2,13 +2,6 @@ package page;
 
 import core.basePage;
 import maps.guiaMedicoPageMaps;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-
-import static core.driverFactory.getDriver;
 
 public class guiaMedicoPage extends basePage {
 
