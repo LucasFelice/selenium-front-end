@@ -1,12 +1,9 @@
 package tests;
 
 import core.baseTest;
-import org.junit.Assert;
-import org.junit.Test;
-
-
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 import static core.driverFactory.getDriver;
-
 
 public class medicoTest extends baseTest {
 
@@ -45,7 +42,7 @@ public class medicoTest extends baseTest {
         home.encontreUmMedico();
         guiaMedico.setDigiteAquiOQueProcura("Pediatria");
         guiaMedico.pesquisar();
-        Assert.assertTrue("Pediatria", getDriver().getPageSource().contains("Pediatria"));
+        Assertions.assertTrue(getDriver().getPageSource().contains("Pediatria"));
         resultadoBusca.perfilDoPrestadorVisivel();
     }
 
@@ -84,7 +81,7 @@ public class medicoTest extends baseTest {
         String resultadoPesquisa2 = resultadoBusca.resultadoEncontradoDaSuaBuscaRefinida();
         System.out.println("Resultado 1: " + resultadoPesquisa1);
         System.out.println("Resultado 2: " + resultadoPesquisa2);
-        Assert.assertNotEquals(resultadoPesquisa1,
+        Assertions.assertNotEquals(resultadoPesquisa1,
                 resultadoPesquisa2);
     }
 
@@ -94,7 +91,7 @@ public class medicoTest extends baseTest {
         acessoRapido.encontreUmMedico();
         guiaMedico.setDigiteAquiOQueProcura("Pediatria");
         guiaMedico.pesquisar();
-        Assert.assertTrue("Pediatria", getDriver().getPageSource().contains("Pediatria"));
+        Assertions.assertTrue(getDriver().getPageSource().contains("Pediatria"));
         resultadoBusca.perfilDoPrestadorVisivel();
     }
 
