@@ -1,7 +1,6 @@
 package page;
 
 import core.basePage;
-import maps.guiaMedicoPageMaps;
 import maps.homePageMaps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
