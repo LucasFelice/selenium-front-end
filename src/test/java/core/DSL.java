@@ -1,15 +1,10 @@
 package core;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
 import java.util.Set;
-
-import static core.driverFactory.getDriver;
+import static core.driverFactory.driver;
 
 public class DSL{
 
@@ -17,7 +12,7 @@ public class DSL{
     /******** Botao ********/
 
     public void clicarBotao(By by) {
-        getDriver().findElement(by).click();
+        driver.findElement(by).click();
     }
 
     public void clicarBotao(String id) {
@@ -28,7 +23,7 @@ public class DSL{
     /******** Radio ********/
 
     public void clicarRadio(By by) {
-        getDriver().findElement(by).click();
+        driver.findElement(by).click();
     }
 
     public void clicarRadio(String id) {
@@ -39,7 +34,7 @@ public class DSL{
     /******** Radio ********/
 
     public void clicarCheckbox(By by) {
-        getDriver().findElement(by).click();
+        driver.findElement(by).click();
     }
 
     public void clicarCheckbox(String id) {
@@ -50,15 +45,15 @@ public class DSL{
     /******** Link ********/
 
     public void clicarLink(String Link) {
-        getDriver().findElement(By.linkText(Link)).click();
+        driver.findElement(By.linkText(Link)).click();
     }
 
 
     /******** TextField & TextArea ********/
 
     public void escrever(By by, String texto){
-        getDriver().findElement(by).clear();
-        getDriver().findElement(by).sendKeys(texto);
+        driver.findElement(by).clear();
+        driver.findElement(by).sendKeys(texto);
     }
 
     public void escrever(String id_campo, String texto){
@@ -67,7 +62,7 @@ public class DSL{
 
 
     public String escreverEObterTextoGuardandoEmVariavel(By by, String texto) {
-        WebElement element = getDriver().findElement(by);
+        WebElement element = driver.findElement(by);
         element.clear();
         element.sendKeys(texto);
         String busca = element.getText();
@@ -77,7 +72,7 @@ public class DSL{
 
 
     public String validarCampoPreenchido(By by) {
-        WebElement elemento = getDriver().findElement(by);
+        WebElement elemento = driver.findElement(by);
         String valorCampo = elemento.getAttribute("value");
 
         if (valorCampo != null && !valorCampo.isEmpty()) {
@@ -92,7 +87,7 @@ public class DSL{
     }
 
     public String obterTexto(By by) {
-        return getDriver().findElement(by).getText();
+        return driver.findElement(by).getText();
     }
 
     public String obterTexto(String id) {
@@ -100,7 +95,7 @@ public class DSL{
     }
 
     public void elementoHabilitado(By by) {
-        WebElement element = getDriver().findElement(by);
+        WebElement element = driver.findElement(by);
         boolean isEnabled = element.isEnabled();
         if (isEnabled) {
             System.out.println("O elemento está habilitado.");
@@ -111,7 +106,7 @@ public class DSL{
 
 
     public void elementoDesabilitado(By by) {
-        WebElement element = getDriver().findElement(by);
+        WebElement element = driver.findElement(by);
         boolean isDisplayed = element.isDisplayed();
         if (isDisplayed) {
             System.out.println("O elemento está habilitado. Falha no teste!");
@@ -124,13 +119,13 @@ public class DSL{
     /******** Combo ********/
 
     public void selecionarCombo(By by, String valor) {
-        WebElement element = getDriver().findElement(by);
+        WebElement element = driver.findElement(by);
         Select combo = new Select(element);
         combo.selectByVisibleText(valor);
     }
 
     public void selecionarComboByValue(By by, String valor) {
-        WebElement element = getDriver().findElement(by);
+        WebElement element = driver.findElement(by);
         Select combo = new Select(element);
         combo.selectByValue(valor);
     }
@@ -144,7 +139,7 @@ public class DSL{
     /******** Alerts ********/
 
     public String alertaObterTextoEAceita() {
-        Alert alert = getDriver().switchTo().alert();
+        Alert alert = driver.switchTo().alert();
         String valor = alert.getText();
         alert.accept();
         return valor;
@@ -154,17 +149,17 @@ public class DSL{
     /******** Frames e Janelas ********/
 
     public void entrarFrame(String id) {
-        getDriver().switchTo().frame(id);
+        driver.switchTo().frame(id);
     }
 
     public void sairFrame() {
-        getDriver().switchTo().defaultContent();
+        driver.switchTo().defaultContent();
     }
 
     public void trocarJanela() {
-        Set<String> handles = getDriver().getWindowHandles();
+        Set<String> handles = driver.getWindowHandles();
         for (String handle : handles) {
-            getDriver().switchTo().window(handle);
+            driver.switchTo().window(handle);
         }
     }
 
@@ -172,16 +167,22 @@ public class DSL{
     /******** Scroll ********/
 
     public void rolagemAteCampo(String id ) {
-        WebElement button = getDriver().findElement(By.id(id));
-        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", button);
+        WebElement button = driver.findElement(By.id(id));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
     }
 
-
+    /******** Simular aperto tecla ********/
 
     public void simularTeclaEnter(By by) {
-        WebElement elemento = getDriver().findElement(by);
-        Actions actions = new Actions(getDriver());
+        WebElement elemento = driver.findElement(by);
+        Actions actions = new Actions(driver);
         actions.moveToElement(elemento).sendKeys("\n").build().perform();
+    }
+
+    public void simularTeclaTab(By by) {
+        WebElement elemento = driver.findElement(by);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(elemento).sendKeys(Keys.TAB).build().perform();
     }
 
 
