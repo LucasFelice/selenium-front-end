@@ -75,19 +75,19 @@ public class guiaMedicoPage extends basePage {
     public void setEspecialidade(String texto) {
         clicarBotao(guiaMedico.btnEspecialidade);
         escrever(guiaMedico.inputEspecialidade, texto);
-        simularTeclaEnter(guiaMedico.enterEspecialidade);
+        simularTeclaTab(guiaMedico.enterEspecialidade);
     }
 
     public void setEstado(String texto) {
         clicarBotao(guiaMedico.btnEstado);
         escrever(guiaMedico.inputEstado, texto);
-        simularTeclaEnter(guiaMedico.enterEstado);
+        simularTeclaTab(guiaMedico.enterEstado);
     }
 
     public void setCidade(String texto) {
         clicarBotao(guiaMedico.btnCidade);
         escrever(guiaMedico.inputCidade, texto);
-        simularTeclaEnter(guiaMedico.enterCidade);
+        simularTeclaTab(guiaMedico.enterCidade);
     }
 
 }
