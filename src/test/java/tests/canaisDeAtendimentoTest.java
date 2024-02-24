@@ -32,8 +32,8 @@ public class canaisDeAtendimentoTest extends baseTest {
         falarComUnimed.setEstado(fakerEstado);
         falarComUnimed.setCidade();
         falarComUnimed.setTelefone(fakerTelefone);
-        falarComUnimed.setManifestacao("Sugestão");
-        falarComUnimed.setAssunto("Médicos Cooperados");
+        falarComUnimed.setManifestacao("Elogio");
+        falarComUnimed.setAssunto("Operadora Unimed");
         falarComUnimed.setMensagem("Teste");
         falarComUnimed.enviarMensagemHabilitado();
     }
