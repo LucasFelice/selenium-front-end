@@ -4,8 +4,7 @@ import core.basePage;
 import maps.homePageMaps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-import static core.driverFactory.getDriver;
+import static core.driverFactory.driver;
 
 public class homePage extends basePage {
 
@@ -30,7 +29,7 @@ public class homePage extends basePage {
 
     private WebElement encontrarElemento(By by) {
         try {
-            return getDriver().findElement(by);
+            return driver.findElement(by);
         } catch (org.openqa.selenium.NoSuchElementException
                  | org.openqa.selenium.StaleElementReferenceException e) {
             return null;
