@@ -5,9 +5,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import page.*;
 
-import static core.driverFactory.killDriver;
+import java.io.IOException;
 
-public class baseTest {
+public class baseTest extends driverFactory{
+
+    private static final long DEFAULT_TIME_WAIT = 10;
+
+    public static WebDriver getDriver() {
+        return driverFactory.driver;
+    }
+
+    protected void openURL(String url) {
+        getDriver().get(url);
+    }
 
     public WebDriver driver;
     public DSL dsl;
@@ -19,12 +29,9 @@ public class baseTest {
     public canaisDeAtendimentoPage canaisAtendimento;
     public falarComUnimedPage falarComUnimed;
 
-    public static WebDriver getDriver() {
-        return driverFactory.getDriver();
-    }
 
     @BeforeEach
-    public void testInicializar() {
+    public void testInicializar() throws IOException {
         dsl = new DSL();
         menu = new falarComUnimedPage();
         guiaMedico = new guiaMedicoPage();
@@ -34,15 +41,16 @@ public class baseTest {
         canaisAtendimento = new canaisDeAtendimentoPage();
         falarComUnimed = new falarComUnimedPage();
 
-        getDriver().get("https://www.unimed.coop.br/site/");
+        driver = initDriver();
+        driver.get(property.getProperty("url"));
         home.aceitarCookies();
 
     }
 
     @AfterEach
-    public void testFinalizar()  {
-            if (propriedades.FECHAR_BROWSER) {
-                killDriver();
+    public void tearDown()  {
+            if (driver != null) {
+                driver.quit();
             }
         }
 }
