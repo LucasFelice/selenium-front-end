@@ -1,6 +1,5 @@
 package Allure;
 
-import Allure.AllureAttachmentsManager;
 import io.qameta.allure.Step;
 
 import java.util.logging.Logger;
