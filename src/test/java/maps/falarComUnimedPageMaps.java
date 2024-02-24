@@ -25,6 +25,8 @@ public class falarComUnimedPageMaps {
             "//input[@id='manifestacao']");
     public final By btnAssunto = By.xpath(
             "//div[@class='Select-placeholder' and text()='Assunto']");
+    public final By inputAssunto = By.xpath(
+            "//input[@id='assunto']");
     public final By btnenviarMensagem = By.xpath("//a[.='Enviar Mensagem']");
     public final By txtCampoObrigatorio = By.xpath("//*[@class='invalid-feedback']");
     public final By txtCampoObrigatorio1 = By.xpath("(//*[@class='invalid-feedback'])[1]");
