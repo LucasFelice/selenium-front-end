@@ -2,10 +2,11 @@ package page;
 
 import core.basePage;
 import maps.falarComUnimedPageMaps;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
-import static core.driverFactory.getDriver;
+import static core.driverFactory.driver;
 
 public class falarComUnimedPage extends basePage {
 
@@ -28,7 +29,7 @@ public class falarComUnimedPage extends basePage {
     }
 
     public void setTelefone(String telefone) throws InterruptedException{
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 falarComUnimed.txtUnimedQuePrestouServico));
         escrever(falarComUnimed.inputTelefone, telefone);
@@ -42,27 +43,29 @@ public class falarComUnimedPage extends basePage {
         clicarBotao(falarComUnimed.btnEstado);
         escrever(falarComUnimed.inputEstado,
                 estado);
-        simularTeclaEnter(falarComUnimed.enterNome);
+        simularTeclaTab(falarComUnimed.enterNome);
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(falarComUnimed.inputCidade));
     }
 
     public void setCidade() {
         clicarBotao(falarComUnimed.inputCidade);
-        simularTeclaEnter(falarComUnimed.enterNome);
+        simularTeclaTab(falarComUnimed.enterNome);
     }
 
     public void setManifestacao(String texto) {
         clicarBotao(falarComUnimed.btnManifestacao);
         escrever(falarComUnimed.inputManifestacao, texto);
-        simularTeclaEnter(falarComUnimed.enterNome);
+        simularTeclaTab(falarComUnimed.enterNome);
     }
 
     public void setAssunto(String texto) {
         clicarBotao(falarComUnimed.btnAssunto);
-        escrever(falarComUnimed.inputEstado, texto);
-        simularTeclaEnter(falarComUnimed.enterNome);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement inputAssunto = wait.until(ExpectedConditions.elementToBeClickable(falarComUnimed.inputAssunto));
+        escrever(falarComUnimed.inputAssunto, texto);
+        simularTeclaTab(falarComUnimed.enterNome);
     }
 
     public void enviarMensagemHabilitado() {
@@ -74,7 +77,7 @@ public class falarComUnimedPage extends basePage {
     }
 
     public void campoObrigatorio() throws InterruptedException{
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(falarComUnimed.txtCampoObrigatorio));
 
         obterTexto(falarComUnimed.txtCampoObrigatorio);
