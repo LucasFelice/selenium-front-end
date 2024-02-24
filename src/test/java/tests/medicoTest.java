@@ -3,7 +3,6 @@ package tests;
 import core.baseTest;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
-import static core.driverFactory.getDriver;
 
 public class medicoTest extends baseTest {
 
@@ -40,9 +39,9 @@ public class medicoTest extends baseTest {
     @Test
     public void testEncontreUmMedicoViaCampoDeBusca() throws InterruptedException{
         home.encontreUmMedico();
-        guiaMedico.setDigiteAquiOQueProcura("Pediatria");
+        guiaMedico.setDigiteAquiOQueProcura("Consulta Pediatria");
         guiaMedico.pesquisar();
-        Assertions.assertTrue(getDriver().getPageSource().contains("Pediatria"));
+        Assertions.assertTrue(getDriver().getPageSource().contains("Consulta Pediatria"));
         resultadoBusca.perfilDoPrestadorVisivel();
     }
 
@@ -58,7 +57,7 @@ public class medicoTest extends baseTest {
     public void testEncontreUmMedicoViaBuscaDetalhadaComTresFiltros() throws InterruptedException{
         home.encontreUmMedico();
         guiaMedico.buscaDetalhada();
-        guiaMedico.setEspecialidade("Pediatria");
+        guiaMedico.setEspecialidade("Consulta Pediatria");
         guiaMedico.setEstado("Minas gerais");
         guiaMedico.setCidade("Juiz de Fora");
         guiaMedico.pesquisar();
@@ -69,7 +68,7 @@ public class medicoTest extends baseTest {
     public void testEncontreUmMedicoERefineSuaBusca() throws InterruptedException{
         home.encontreUmMedico();
         guiaMedico.buscaDetalhada();
-        guiaMedico.setEspecialidade("Pediatria");
+        guiaMedico.setEspecialidade("Consulta Pediatria");
         guiaMedico.setEstado("Minas gerais");
         guiaMedico.setCidade("Juiz de Fora");
         guiaMedico.pesquisar();
@@ -89,9 +88,9 @@ public class medicoTest extends baseTest {
     public void testEncontreUmMedicoViaAcessoRapido() throws InterruptedException{
         home.acessoRapido();
         acessoRapido.encontreUmMedico();
-        guiaMedico.setDigiteAquiOQueProcura("Pediatria");
+        guiaMedico.setDigiteAquiOQueProcura("Consulta Pediatria");
         guiaMedico.pesquisar();
-        Assertions.assertTrue(getDriver().getPageSource().contains("Pediatria"));
+        Assertions.assertTrue(getDriver().getPageSource().contains("Consulta Pediatria"));
         resultadoBusca.perfilDoPrestadorVisivel();
     }
 
