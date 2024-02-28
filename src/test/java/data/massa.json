@@ -1,0 +1,12 @@
+{
+  "nao cliente": {
+  "nome": "Lucas",
+  "email": "lucas@test.com",
+  "estado": "Rio de Janeiro",
+  "cidade": "Rio de Janeiro",
+  "telefone": "21912345678",
+  "manifestacao": "Elogio",
+  "assunto": "Operadora Unimed",
+  "mensagem": "Implentando massa de teste Json."
+}
+}
