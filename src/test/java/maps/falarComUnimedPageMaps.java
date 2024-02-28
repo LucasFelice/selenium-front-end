@@ -15,10 +15,12 @@ public class falarComUnimedPageMaps {
     public final By inputMensagem = By.xpath("//textarea[@id='mensagem']");
     public final By btnEstado = By.xpath(
             "//div[@class='Select-placeholder' and text()='Estado']");
-    public final By inputEstado = By.xpath("(//div[@class='Select-input']//input)[1]");
+    public final By inputEstado = By.xpath("//input[@id='estado']");
     public final By enterNome = By.xpath("//input[@name='nome']");
-    public final By inputCidade = By.xpath(
+    public final By btnCidade = By.xpath(
             "//div[@class='Select-placeholder' and text()='Cidade']");
+    public final By inputCidade = By.xpath(
+            "//input[@id='cidade']");
     public final By btnManifestacao = By.xpath(
             "(//div[@id='react-select-4--value']/div)[1]");
     public final By inputManifestacao = By.xpath(
