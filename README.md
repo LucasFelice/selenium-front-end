@@ -42,7 +42,7 @@ $ git clone https://github.com/LucasFelice/selenium-front-end.git
 $ cd selenium-front-end
 
 # Instale as dependências
-$ npm install
+$ mvn clean install
 
 # Execute a aplicação
 $ Antes da execução certifique-se que não há dados na pasta "allure-results" para não gerar resultados diferentes da execução que será realizada.
