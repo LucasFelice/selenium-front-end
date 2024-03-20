@@ -16,8 +16,8 @@ public class falarComUnimedPage extends basePage {
         return obterTexto(falarComUnimed.txtQueroFalarComAUnimed);
     }
 
-    public void nao() {
-        clicarBotao(falarComUnimed.btnNao);
+    public void naoCliente() {
+        clicarBotao(falarComUnimed.btnNaoCliente);
     }
 
     public void setNome(String nome) {

@@ -15,9 +15,7 @@ public class suiteTest {
     public static void finalizarTudo() {
         driverFactory.driver.quit();
     }
-
-
-
+    
     @Nested
     @DisplayName("medicoTest")
     class MedicoTest extends medicoTest {

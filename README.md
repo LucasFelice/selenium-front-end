@@ -52,7 +52,7 @@ $ Ex.: mvn clean test -Dtest=suiteTest ---> Executará todos os testes dentro do
 
 # Abra o relatório Allure
 $ allure serve --port 8080 C:\caminho\para\diretório\llure-results --clean
-$ Ex.: allure serve --port 8080 C:\Users\lucas\IdeaProjects\ProjetoSelenium\selenium-front-end\src\test\resources\allure-results --clean
+$ Ex.: allure serve --port 8080 C:\Users\lucas\IdeaProjects\ProjetoSelenium\selenium-front-end\src\test\resources\allure-results
 
 # Apague dados gerados no relatório Allure
 $ rd /s C:\caminho\para\diretório\allure-results

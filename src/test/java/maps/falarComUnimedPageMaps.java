@@ -6,7 +6,7 @@ public class falarComUnimedPageMaps {
 
     public final By txtQueroFalarComAUnimed = By.xpath(
             "//h2[.='Quero falar com a Unimed']");
-    public final By btnNao = By.xpath("//button[@name='naoCliente']");
+    public final By btnNaoCliente = By.xpath("//button[@name='naoCliente']");
     public final By inputNome = By.xpath("//input[@name='nome']");
     public final By inputEmail = By.xpath("//input[@name='email']");
     public final By txtUnimedQuePrestouServico = By.xpath(

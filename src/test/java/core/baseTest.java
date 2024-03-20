@@ -1,5 +1,6 @@
 package core;
 
+import com.github.javafaker.Faker;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -12,6 +13,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.Locale;
 
 public class baseTest extends driverFactory{
 
@@ -91,4 +93,15 @@ public class baseTest extends driverFactory{
         return new String(jsonData.get(jsonProperty).
                 toString().getBytes(Charset.forName("ISO-8859-1")), Charset.forName("UTF-8"));
     }
+
+    ///// Configuração do Faker  /////
+
+    Faker faker = new Faker(new Locale("pt-BR"));
+
+    public String fakerFirstName = faker.name().firstName();
+    public String fakerLastName = faker.name().lastName();
+    public String fakerEmail = faker.internet().emailAddress(
+            fakerFirstName + fakerLastName).toLowerCase();
+    public String fakerEstado = faker.address().state();
+    public String fakerTelefone = faker.phoneNumber().cellPhone();
 }
