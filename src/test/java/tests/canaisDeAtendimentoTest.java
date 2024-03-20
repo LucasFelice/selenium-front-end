@@ -9,15 +9,6 @@ import java.util.Locale;
 
 public class canaisDeAtendimentoTest extends baseTest {
 
-    Faker faker = new Faker(new Locale("pt-BR"));
-
-    String fakerFirstName = faker.name().firstName();
-    String fakerLastName = faker.name().lastName();
-    String fakerEmail = faker.internet().emailAddress(
-            fakerFirstName + fakerLastName).toLowerCase();
-    String fakerEstado = faker.address().state();
-    String fakerTelefone = faker.phoneNumber().cellPhone();
-
     private JSONObject massaJson;
 
     @Test
@@ -30,7 +21,7 @@ public class canaisDeAtendimentoTest extends baseTest {
         canaisAtendimento.queroFalarComAUnimed();
         Assertions.assertEquals(
                 "Quero falar com a Unimed", falarComUnimed.tituloQueroFalarComAUnimed());
-        falarComUnimed.nao();
+        falarComUnimed.naoCliente();
         falarComUnimed.setNome((String) massaJson.get("nome"));
         falarComUnimed.setEmail((String) massaJson.get("email"));
         falarComUnimed.setEstado((String) massaJson.get("estado"));
@@ -49,7 +40,7 @@ public class canaisDeAtendimentoTest extends baseTest {
         canaisAtendimento.queroFalarComAUnimed();
         Assertions.assertEquals(
                 "Quero falar com a Unimed", falarComUnimed.tituloQueroFalarComAUnimed());
-        falarComUnimed.nao();
+        falarComUnimed.naoCliente();
         falarComUnimed.setNome(fakerFirstName + " " +fakerLastName);
         falarComUnimed.setEmail(fakerEmail);
         falarComUnimed.setEstado(fakerEstado);
@@ -69,7 +60,7 @@ public class canaisDeAtendimentoTest extends baseTest {
         canaisAtendimento.queroFalarComAUnimed();
         Assertions.assertEquals(
                 "Quero falar com a Unimed", falarComUnimed.tituloQueroFalarComAUnimed());
-        falarComUnimed.nao();
+        falarComUnimed.naoCliente();
         falarComUnimed.setNome("");
         falarComUnimed.setEmail("");
         falarComUnimed.setEstado("");
