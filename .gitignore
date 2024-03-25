@@ -43,3 +43,6 @@ build/
 
 ### allure-results ###
 !**/src/test/resources/allure-results
+
+#### license ###
+LICENSE
